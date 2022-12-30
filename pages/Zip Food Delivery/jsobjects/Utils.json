@@ -1,0 +1,21 @@
+{
+  "unpublishedCollection": {
+    "name": "Utils",
+    "pageId": "Zip Food Delivery",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "actions": [],
+    "archivedActions": [],
+    "body": "export default {\n\taddorder: async () => {\n\t\tconst orderId = this.generateRandomID();\n\t\tawait add_order.run({id: orderId});\n\t\tawait add_product.run({id: orderId});\n\t\tawait fetch_orders.run();\n\t\tawait resetWidget(\"add_modal\");\n\t\treturn closeModal(\"add_modal\");\n\t},\n\teditOrder: async () => {\n\t\tawait edit_order.run();\n\t\tawait fetch_orders.run();\n\t\treturn closeModal(\"edit_order_modal\");\n\t},\n\tgenerateRandomID: () => {\n\t\treturn \"_\" + Math.random().toString(36).substr(2, 9)\n\t},\n\tstatusOptions: [\n  {\n    \"label\": \"Order Placed\",\n    \"value\": \"ORDER PLACED\"\n  },\n  {\n    \"label\": \"Delayed\",\n    \"value\": \"DELAYED\"\n  },\n  {\n    \"label\": \"Delivered\",\n    \"value\": \"DELIVERED\"\n  },\n\t{\n    \"label\": \"Refunded\",\n    \"value\": \"REFUNDED\"\n  }\n]\n}",
+    "variables": [
+      {
+        "name": "statusOptions",
+        "value": "[{\n  \"label\": \"Order Placed\",\n  \"value\": \"ORDER PLACED\"\n}, {\n  \"label\": \"Delayed\",\n  \"value\": \"DELAYED\"\n}, {\n  \"label\": \"Delivered\",\n  \"value\": \"DELIVERED\"\n}, {\n  \"label\": \"Refunded\",\n  \"value\": \"REFUNDED\"\n}]"
+      }
+    ],
+    "userPermissions": []
+  },
+  "id": "Zip Food Delivery_Utils",
+  "deleted": false,
+  "gitSyncId": "63aed81bfcb7cc4992ae30eb_63af0ebc639e241a2b854948"
+}
